@@ -24,5 +24,5 @@ def test_model():
 if __name__ == '__main__':
 
     # input_name()
-    #training_model()
+    #training_model()q
     test_model()

@@ -68,3 +68,4 @@ def plot_history(history):
         plt.legend(['Training', 'Validation'], loc='lower right')
         plt.grid()
         plt.show()
+
