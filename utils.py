@@ -1,5 +1,7 @@
 import os
 import cv2
+from keras.utils import to_categorical
+from sklearn.preprocessing import LabelEncoder
 import matplotlib as plt
 
 
@@ -17,14 +19,23 @@ def load_datasets(dataset="datasets/", max_sample=100):
 
     for folder in os.listdir(dataset):
         files = os.listdir(os.path.join(dataset, folder))[:max_sample]
-        names.append(folder)
 
         for file in files:
             images.append(file)
+            names.append(folder)
 
-    print("Count images: ", len(names))
-    print("Count images: ", len(images))
     return names, images
+
+
+def convert_categorical(names):
+    le = LabelEncoder()
+    le.fit(names)
+    labels = le.classes_
+    print("List labels: {}".format(labels))
+
+    name_vector = le.transform(names)
+    label_name_vector = to_categorical(name_vector)
+    return label_name_vector, labels
 
 
 def detector_face():
