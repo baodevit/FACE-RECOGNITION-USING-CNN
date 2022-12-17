@@ -21,7 +21,7 @@ def predict():
             cv2.rectangle(img=frame,
                           pt1=(x, y),
                           pt2=(x + w, y + h),
-                          color=(255, 0, 255),
+                          color=(0, 255, 0),
                           thickness=2)
             face_img = gray[y:y + h, x:x + w]
             face_img = cv2.resize(face_img, (100, 100))
@@ -29,10 +29,10 @@ def predict():
             result = model.predict(face_img)
             idx = result.argmax(axis=1)[0]
             confidence = result.max(axis=1) * 100
-            if confidence > 50:
+            if confidence > 90:
                 label_text = "%s" % labels[idx]
                 cv2.putText(img=frame,
-                            text=label_text,
+                            text=str(label_text) + " " + str(confidence) + "%",
                             org=(x + 10, y + h + 30),
                             fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                             fontScale=1,
@@ -41,7 +41,7 @@ def predict():
             else:
                 label_text = "Unknown"
                 cv2.putText(img=frame,
-                            text=label_text,
+                            text=str(label_text) + " " + str(confidence) + "%",
                             org=(x + 10, y + h + 30),
                             fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                             fontScale=1,
@@ -52,4 +52,3 @@ def predict():
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-
