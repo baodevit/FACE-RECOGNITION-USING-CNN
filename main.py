@@ -1,5 +1,6 @@
 import data_collection
 import train
+import predict
 
 
 def input_name():
@@ -16,6 +17,11 @@ def training_model():
     train.training_model(num_epoch=num_epoch, num_batch_size=num_batch_size)
 
 
+def test_model():
+    predict.predict()
+
+
 if __name__ == '__main__':
     # input_name()
-    training_model()
+    # training_model()
+    test_model()

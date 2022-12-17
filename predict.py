@@ -38,15 +38,6 @@ def predict():
                             fontScale=1,
                             color=(0, 0, 255),
                             thickness=2)
-            elif confidence == 0:
-                label_text = "Not face"
-                cv2.putText(img=frame,
-                            text=label_text,
-                            org=(x + 10, y + h + 30),
-                            fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                            fontScale=1,
-                            color=(0, 0, 255),
-                            thickness=2)
             else:
                 label_text = "Unknown"
                 cv2.putText(img=frame,
