@@ -11,7 +11,7 @@ def get_data(name_person, dataset_folder):
     max_sample = 0
     while (True):
         ret, frame = camera.read()
-        img_gray = cv2.cvtColor(src=frame, code=cv2.COLOR_RGBA2GRAY)
+        img_gray = cv2.cvtColor(src=frame, code=cv2.COLOR_BGR2GRAY)
 
         faces = face_detector.detectMultiScale(image=img_gray,
                                                scaleFactor=1.1,

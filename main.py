@@ -1,4 +1,5 @@
 import data_collection
+import train
 
 
 def input_name():
@@ -9,5 +10,12 @@ def input_name():
     print("Data collection is completed !")
 
 
+def training_model():
+    num_epoch = int(input("Enter number epochs: "))
+    num_batch_size = int(input("Enter number batch_size: "))
+    train.training_model(num_epoch=num_epoch, num_batch_size=num_batch_size)
+
+
 if __name__ == '__main__':
-    input_name()
+    # input_name()
+    training_model()
