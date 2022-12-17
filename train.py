@@ -37,3 +37,5 @@ def training_model(num_epoch,num_batch_size):
 
 
 
+
+
