@@ -26,7 +26,7 @@ def get_data(name_person, dataset_folder):
                                     dsize=img_size,
                                     interpolation=cv2.INTER_AREA)
             max_sample += 1
-            cv2.imwrite(filename="datasets/" + str(name_person) + "/" + str(name_person) + "." + str(max_sample) + ".jpg", img=img_resize)
+            cv2.imwrite(filename="datasets/" + str(name_person) + "/" + str(name_person) + str(max_sample) + ".jpg", img=img_resize)
         cv2.imshow(winname="Camera", mat=frame)
         cv2.waitKey(10)
 
